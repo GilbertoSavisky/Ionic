@@ -4,6 +4,17 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
+    path: 'intro',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../intro/intro.module').then(m => m.IntroPageModule)
+      }
+    ]
+  },
+
+  {
     path: 'tabs',
     component: TabsPage,
     children: [
