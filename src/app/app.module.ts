@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -9,10 +10,9 @@ import { AppComponent } from './app.component';
 import { FeedPageModule } from './feed/feed.module';
 
 
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   
   entryComponents: [],
@@ -22,6 +22,7 @@ import { FeedPageModule } from './feed/feed.module';
     IonicModule.forRoot(), 
     AppRoutingModule,
     FeedPageModule,
+    HttpClientModule
   ],
   
   providers: [
