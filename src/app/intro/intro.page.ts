@@ -13,6 +13,6 @@ export class IntroPage implements OnInit {
   ngOnInit() {
   }
   irPara() {
-    this.route.navigate(['/tabs']);
+    this.route.navigate(['/tabs/tab1']);
   }
 }
