@@ -8,28 +8,23 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeedPageModule } from './feed/feed.module';
+import { ConfigService } from './Provider/Config/config';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  
+  declarations: [AppComponent],
+
   entryComponents: [],
-  
+
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule,
-    FeedPageModule,
-    HttpClientModule
+    AppRoutingModule, 
+    FeedPageModule, 
+    HttpClientModule,
   ],
-  
-  providers: [
-    StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
+
+  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

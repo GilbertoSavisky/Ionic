@@ -10,7 +10,7 @@ export class MoovieService {
   constructor(private http: HttpClient) { }
 
   getLatesMovies() {
-    return this.http.get(this.baseApiPath + '/movie/popular?api_key='+ this.getKey());
+    return this.http.get(this.baseApiPath + '/movie/popular?api_key=' + this.getKey());
   }
 
   getKey(): string {

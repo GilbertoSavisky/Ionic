@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ConfiguracoesPage } from '../configuracoes/configuracoes.page';
 import { IntroPage } from '../intro/intro.page';
+import { PerfilPage } from '../perfil/perfil.page';
+import { SobrePage } from '../sobre/sobre.page';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
@@ -13,6 +16,42 @@ const routes: Routes = [
         path: '',
         loadChildren: () =>
           import('../intro/intro.module').then(m => m.IntroPageModule)
+      }
+    ]
+  },
+  {
+    path: 'configuracoes',
+    component: ConfiguracoesPage,
+
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../configuracoes/configuracoes.module').then(m => m.ConfiguracoesPageModule)
+      }
+    ]
+  },
+  {
+    path: 'sobre',
+    component: SobrePage,
+
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../sobre/sobre.module').then(m => m.SobrePageModule)
+      }
+    ]
+  },
+  {
+    path: 'perfil',
+    component: PerfilPage,
+
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../perfil/perfil.module').then(m => m.PerfilPageModule)
       }
     ]
   },

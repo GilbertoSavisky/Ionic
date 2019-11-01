@@ -12,9 +12,9 @@ export class FeedPage implements OnInit {
     titulo: 'Meu App de Futebol',
     data: new Date(),
     descricao: 'Este é um famoso app para selecionar jogadores, organizar churrasco e mais...'
-  }
+  };
 
-  public listaFilmes= new Array<any>();
+  public listaFilmes = new Array<any>();
 
   constructor(private moovieService: MoovieService) { }
 
@@ -23,13 +23,12 @@ export class FeedPage implements OnInit {
       data => {
         // const response = (data as any);
         // const objRetorn = JSON.parse(response._body);
-        this.listaFilmes = data.results;
-        console.log(this.listaFilmes);
+        // tslint:disable-next-line:no-string-literal
+        this.listaFilmes = data['results'];
+        console.log(data);
       }, error => {
         console.log(error);
-      }
-      
-      )
+      });
   }
 
 }
