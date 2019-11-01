@@ -5,6 +5,16 @@
 </ion-header>
 
 <ion-content>
+
+        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing...">
+          </ion-refresher-content>
+        </ion-refresher>
+
   <h2>{{objFeed.nomeUsuario}}</h2>
   <ion-card *ngFor="let filme of listaFilmes">
     <ion-card-header>
