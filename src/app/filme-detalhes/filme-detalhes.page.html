@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>filmeDetalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="filme">
+    <ion-card-header>
+      <ion-card-subtitle>Filme</ion-card-subtitle>
+      <ion-card-title>{{ filme.original_title }}</ion-card-title>
+    </ion-card-header>
+    <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path" />
+    <ion-card-content>
+      {{ filme.overview }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

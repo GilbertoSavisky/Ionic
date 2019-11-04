@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'feed', loadChildren: './feed/feed.module#FeedPageModule' },
   { path: 'intro', loadChildren: './intro/intro.module#IntroPageModule' },  { path: 'configuracoes', loadChildren: './configuracoes/configuracoes.module#ConfiguracoesPageModule' },
   { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },
-  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' }
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'filme-detalhes', loadChildren: './filme-detalhes/filme-detalhes.module#FilmeDetalhesPageModule' }
 
 ];
 @NgModule({

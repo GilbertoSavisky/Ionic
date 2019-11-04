@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfiguracoesPage } from '../configuracoes/configuracoes.page';
+import { FilmeDetalhesPage } from '../filme-detalhes/filme-detalhes.page';
 import { IntroPage } from '../intro/intro.page';
 import { PerfilPage } from '../perfil/perfil.page';
 import { SobrePage } from '../sobre/sobre.page';
@@ -31,6 +32,19 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'filme-detalhes',
+    component: FilmeDetalhesPage,
+
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../filme-detalhes/filme-detalhes.module').then(m => m.FilmeDetalhesPageModule)
+      }
+    ]
+  },
+
   {
     path: 'sobre',
     component: SobrePage,

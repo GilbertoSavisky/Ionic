@@ -17,10 +17,10 @@ import { ConfigService } from './Provider/Config/config';
   entryComponents: [],
 
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
-    FeedPageModule, 
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FeedPageModule,
     HttpClientModule,
   ],
 

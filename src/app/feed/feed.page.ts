@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { MoovieService } from '../Provider/moovie.service';
 
@@ -17,8 +18,14 @@ export class FeedPage implements OnInit {
 
   public listaFilmes = new Array<any>();
   public loader;
+  public refresher;
+  public isRefresher = false;
 
-  constructor(private moovieService: MoovieService, public loadingController: LoadingController) { }
+  constructor(
+    private moovieService: MoovieService,
+    public loadingController: LoadingController,
+    public rota: Router
+  ) { }
 
 
   async presentLoading() {
@@ -45,25 +52,35 @@ export class FeedPage implements OnInit {
   }
 
   doRefresh(event) {
-    console.log('Begin async operation');
+      this.refresher = event.target;
+      this.isRefresher = true;
+      this.carregarFilmes();
+    }
 
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      event.target.complete();
-    }, 2000);
-  }
+    abrirDetalhes(filme) {
+      this.rota.navigate(['./filme-detalhes', {id: filme.id}]);
+    }
+
   ngOnInit() {
+    this.carregarFilmes();
+  }
+
+  carregarFilmes(){
     this.presentLoading();
     this.moovieService.getLatesMovies().subscribe(
       data => {
-        // const response = (data as any);
-        // const objRetorn = JSON.parse(response._body);
         // tslint:disable-next-line:no-string-literal
         this.listaFilmes = data['results'];
-        console.log(data);
+        this.presentLoading();
+        if (this.isRefresher) {
+          this.refresher.complete();
+          this.isRefresher = false;
+          console.log(this.listaFilmes);
+        }
       }, error => {
         console.log(error);
       });
-  }
 
+  }
 }
+
